@@ -11,6 +11,17 @@ export const AuthProvider = ({children}) => {
       value={{
         user,
         setUser,
+    guest: async (email, password) => {
+          try {
+            auth()
+          .signInAnonymously()
+          .then(() => {
+          console.log('User signed in anonymously');
+      })}
+      catch(e){
+        console.log(e);
+      }     
+},
         login: async (email, password) => {
           try {
             await auth().signInWithEmailAndPassword(email, password);
