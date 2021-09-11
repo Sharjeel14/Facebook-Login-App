@@ -9,7 +9,7 @@ const LoginScreen = ({navigation}) => {
   const [email, setEmail] =useState();
   const [password, setPassword] =useState();
 
-  const {login, fbLogin} = useContext(AuthContext);
+  const {guest, login, fbLogin} = useContext(AuthContext);
     return (
       <View style={styles.container}>
         <Image
@@ -48,6 +48,13 @@ const LoginScreen = ({navigation}) => {
           backgroundColor= '#e6eaf4'
           onPress= {()=> fbLogin()}
         />
+	<SocialButton
+        buttonTitle="Sign In as Guest"
+        btnType="facebook"
+        color="#4867aa"
+        backgroundColor="#e6eaf4"
+        onPress={() => guest()}
+      />
         <TouchableOpacity style={styles.forgotButton}
         onPress={()=> navigation.navigate('Signup')}>
           <Text style={styles.navButtonText}>Don't have an account? Create here</Text>
